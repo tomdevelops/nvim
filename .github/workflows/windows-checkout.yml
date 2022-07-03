@@ -1,0 +1,14 @@
+name: Test checkout of 'mini.nvim' on Windows
+
+on: [push]
+
+jobs:
+  build:
+    name: Test checkout of 'mini.nvim' on Windows
+    timeout-minutes: 10
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run 'mini.nvim' checkout
+        run: make mini_checkout

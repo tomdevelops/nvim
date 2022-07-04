@@ -1,0 +1,19 @@
+name: Test checkout of 'mini.nvim'
+
+on: [push]
+
+jobs:
+  build:
+    name: Test checkout of 'mini.nvim'
+    timeout-minutes: 10
+    strategy:
+      matrix:
+        include:
+          - os: windows-latest
+          - os: macos-latest
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run 'mini.nvim' checkout
+        run: make mini_checkout
